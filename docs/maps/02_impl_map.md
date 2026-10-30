@@ -2799,7 +2799,19 @@ Python 3.13.1, PyArrow 24.0.0(기존 Parquet·대량 join), 표준 `csv`, `decim
 - 오류/엣지: 입력 누락·보고서 해시 불일치·자막 잘림·영상/오디오 트랙 오류는 실패. 제외 표현을 표시하지 않고 모형 결과임을 밝힌다.
 - 테스트/DoD: ffprobe·전 구간 디코딩, 12개 컷 추출 육안 검사, 수치와 기록 대조·실제 재생 움직임·무음·정상 길이 확인.
 
+## I-400-a — main 병합과 README 충돌 해결 (C-400)
+
+- 위치: 저장소 `README.md`, `docs/maps/`와 GitHub `main` PR. 기술: Git 및 GitHub 저장소의 기존 보호 규칙, 버전 제약 없음.
+- 인터페이스: source 브랜치를 최신 main과 병합한 뒤 PR base=`main`, head=`feat/myeongdong-simulation-source`; merge 방식은 GitHub의 보호 규칙을 따르며 head SHA를 확인한다.
+- 데이터: 입력·생성 데이터, 지도 GLB·글꼴, 재생 기록·바이너리 픽스처는 트리에 추가하지 않는다. 기존 소스와 main의 AGENTS.md·CLAUDE.md를 보존한다.
+- 흐름: 계획 기록 → 최신 main을 source에 병합 → add/add 충돌인 README에 source 설명과 이전 브랜치 링크를 결합하고 `main`에서 소스를 볼 수 있음을 명시 → 소스와 금지 경로 검사 → PR을 생성·검토·병합 → main 트리 재조회한다.
+- 에러 정책: 예상 밖 충돌·파일 변경·금지 데이터가 있으면 중단하고 Map을 먼저 갱신한다. main 또는 PR head가 바뀌면 다시 확인한다. 보호 규칙이 병합을 거부하면 우회하지 않고 보고한다.
+- 엣지: 소스 브랜치와 main이 각각 README를 추가해 충돌한다; 소스만 필요한 파일은 원본과 blob SHA가 같아야 한다. 기존 main의 파일은 동일해야 한다.
+- 성능/자원: 제약 없음. 테스트: Given 두 브랜치, When 충돌 해결, Then 소스 및 기존 파일 일치·금지 데이터 없음·README 안내 유효; Given PR 병합, When main ref/tree 조회, Then 검증한 트리와 일치하고 PR이 merged다. DoD: 모든 테스트 통과.
+
 ## Changelog
+
+- 2026-10-31: main 병합 I-400-a 추가.
 
 - 2026-10-31: 배포 선정·이식 경로·원격 검증 I-300-a~I-302-a 추가.
 
