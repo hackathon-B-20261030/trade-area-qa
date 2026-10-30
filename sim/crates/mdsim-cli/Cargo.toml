@@ -1,0 +1,18 @@
+[package]
+name = "mdsim-cli"
+description = "명동 에이전트 시뮬레이션 실행 명령"
+edition.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[[bin]]
+name = "mdsim"
+path = "src/main.rs"
+
+[dependencies]
+mdsim-core = { path = "../mdsim-core" }
+mdsim-runtime = { path = "../mdsim-runtime" }
+mdsim-plot = { path = "../mdsim-plot" }
+serde_json.workspace = true
+rayon.workspace = true
+sha2.workspace = true

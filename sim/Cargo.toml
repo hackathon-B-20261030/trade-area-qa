@@ -1,0 +1,29 @@
+[workspace]
+resolver = "2"
+members = ["crates/mdsim-core", "crates/mdsim-runtime", "crates/mdsim-plot", "crates/mdsim-cli"]
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"
+publish = false
+
+[workspace.dependencies]
+serde = { version = "1.0.228", features = ["derive"] }
+# float_roundtrip: 체크포인트 f64 왕복을 정확히(02d S-E28)
+serde_json = { version = "1.0.149", features = ["float_roundtrip"] }
+serde_norway = "0.9.42"
+parquet = { version = "60.1", default-features = false, features = ["arrow", "snap"] }
+arrow-array = "60.1"
+arrow-schema = "60.1"
+arrow-select = "60.1"
+arrow-cast = "60.1"
+rayon = "1.12"
+sha2 = "0.10.9"
+flate2 = "1.1"
+
+[profile.release]
+opt-level = 3
+debug = false
+
+[profile.test]
+opt-level = 2

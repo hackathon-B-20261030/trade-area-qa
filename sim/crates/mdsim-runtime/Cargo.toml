@@ -1,0 +1,14 @@
+[package]
+name = "mdsim-runtime"
+description = "명동 에이전트 시뮬레이션 런타임: 공간·환경·반응·결정·지각·이동·step·기록"
+edition.workspace = true
+version.workspace = true
+publish.workspace = true
+
+[dependencies]
+mdsim-core = { path = "../mdsim-core" }
+serde.workspace = true
+serde_json.workspace = true
+rayon.workspace = true
+flate2.workspace = true
+sha2.workspace = true
