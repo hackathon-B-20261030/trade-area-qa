@@ -2764,10 +2764,10 @@ Python 3.13.1, PyArrow 24.0.0(기존 Parquet·대량 join), 표준 `csv`, `decim
 ### I-302-a — GitHub 브랜치 (C-302)
 
 - 위치: `hackathon-B-20261030/trade-area-qa`의 `feat/` 브랜치. 기존 `main`의 두 파일은 보존한다.
-- 인터페이스: GitHub Git tree/commit/ref API. 새 커밋의 부모는 확인한 `main` HEAD, 트리는 그 tree를 기반으로 선정 파일을 추가한다.
+- 인터페이스: GitHub Git tree/commit/ref. 첫 소스 커밋의 부모는 확인한 `main` HEAD이고, 이후 검증 결과를 기록하는 커밋은 그 소스 커밋의 자손이다. 트리는 main tree를 기반으로 선정 파일을 추가한다.
 - 흐름: 준비된 파일 및 검사 결과 확인 → blob/tree/commit 구성 → 새 브랜치 생성 → 원격 ref/tree/부모를 읽어 검증한다. 충돌·권한 오류 시 덮어쓰지 않고 중단한다.
 - 에러·엣지: 브랜치 이름 중복은 새 이름 선택; `main` 변경 시 다시 확인; 원격 쓰기 실패는 실패로 보고. 성능/자원: 파일당 100 MB 미만.
-- 테스트: Given GitHub에 생성한 브랜치, When ref/tree/commit을 다시 조회, Then HEAD가 생성한 커밋이며 기존 원격 파일과 필수 소스가 있고 부모가 확인한 main HEAD다. DoD: 해당 검증 전부 통과.
+- 테스트: Given GitHub에 생성한 브랜치, When ref/tree/commit을 다시 조회, Then HEAD가 생성한 커밋이며 기존 원격 파일과 필수 소스가 있고 첫 소스 커밋의 부모가 확인한 main HEAD다. DoD: 해당 검증 전부 통과.
 
 ### I-303-a — main README (C-303)
 
