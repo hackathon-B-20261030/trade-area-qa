@@ -2,6 +2,13 @@
 
 명동 3D 화면, Python 로컬 API와 Rust 시뮬레이션 엔진의 소스다. 이 브랜치에는 사용자의 요청에 따라 **데이터를 포함하지 않았다**. 기존 실행 결과는 실측 방문자나 수요 예측이 아닌 가정 기반 시뮬레이션이며 엔진의 물리 검증은 완료되지 않았다.
 
+소스는 `main`에서 바로 확인할 수 있다. 기존 [소스 브랜치](https://github.com/hackathon-B-20261030/trade-area-qa/tree/feat/myeongdong-simulation-source)도 유지되며 다음 명령으로 전환할 수 있다.
+
+```bash
+git fetch origin
+git switch --track origin/feat/myeongdong-simulation-source
+```
+
 ## 구성
 
 | 경로 | 내용 |
