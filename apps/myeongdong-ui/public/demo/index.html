@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>명동 엔진 · 가설 시연</title>
+  <link rel="icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/demo/demo.css">
+  <script src="/demo/demo.js" defer></script>
+</head>
+<body>
+  <header class="topbar"><a href="/">MD <span>명동 엔진</span></a><span>시뮬레이션 기록 / 가설 비교</span></header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">PAIRED SIMULATION · 5,044 PEOPLE</p>
+      <h1>무엇을 바꾸면<br>어떤 차이가 생길까</h1>
+      <p class="lead">같은 인물과 입장 계획에서 조건 하나만 바꿔 비교했습니다. 아래 버튼은 이미 계산한 실제 Rust 기록을 열며 새 계산을 시작하지 않습니다.</p>
+      <div class="facts"><span>투입 인물 <b>5,044명</b></span><span>분석 시간 <b>14:00–17:00</b></span><span>반복 확인 <b>서로 다른 시드 2개</b></span></div>
+    </section>
+    <section aria-labelledby="selected-title">
+      <div class="section-head"><div><p class="eyebrow">DEMONSTRATIONS</p><h2 id="selected-title">시연할 만한 비교</h2></div><p>각 표는 기준 → 변경 순서입니다.</p></div>
+      <div id="selected" aria-live="polite"><p class="loading">검증 결과를 불러오는 중입니다.</p></div>
+    </section>
+    <section class="all-results" aria-labelledby="all-title">
+      <div class="section-head"><div><p class="eyebrow">ALL HYPOTHESES</p><h2 id="all-title">시험한 가설 전체</h2></div></div>
+      <p>선정되지 않은 결과도 포함했습니다. 한 번만 실행한 항목은 재검증 전 상태입니다.</p>
+      <div class="table-wrap"><table><thead><tr><th>변경한 조건</th><th>주 지표</th><th>첫 시드</th><th>두 번째 시드</th><th>판정</th></tr></thead><tbody id="all-results"></tbody></table></div>
+    </section>
+    <section class="caveats" aria-labelledby="limits-title">
+      <p class="eyebrow">HOW TO READ</p><h2 id="limits-title">결과를 읽을 때</h2>
+      <ul id="limitations"></ul>
+      <p id="engine-version" class="version"></p>
+    </section>
+  </main>
+</body>
+</html>
